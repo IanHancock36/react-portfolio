@@ -1,35 +1,61 @@
-
-import React, {useState} from 'react'; 
-import {Link} from 'react-router-dom'
-import {FaBars,FaTimes,GiCrystalBars} from 'react-icons/fa'
-import {MdFingerprint} from 'react-icons/md'
-
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { FaBars, FaTimes, GiCrystalBars } from "react-icons/fa";
+import { MdFingerprint } from "react-icons/md";
+import { Button } from "react-native-elements";
 
 function Navbar() {
-    
-    const [click, setClick] = useState(false)
+  const [click, setClick] = useState(false);
 
-    const handleClick = ()=> setClick(!click)
-    
-    return (
-       <>
-       <div className= 'navbar'>
-            <div className = "navbar-container container ">
-             <Link to='/' className= "navbar-logo">
-                 <MdFingerprint className = 'navbar-icon' />
-                IH
-            </Link>
-              <div className = "menu-icon" onClick={handleClick}> 
-              {click ? <FaTimes /> : <FaBars />}
-              </div>
-            </div> 
-       </div>
-       </>
+  const handleClick = () => setClick(!click);
 
-    )
+  return (
+    <>
+      <div className="navbar">
+        <div className="navbar-container container ">
+          <Link to="/" className="navbar-logo">
+            <MdFingerprint className="navbar-icon" /> IH{" "}
+          </Link>
+          <div className="menu-icon" onClick={handleClick}>
+            {click ? <FaTimes /> : <FaBars />}
+          </div>
+          <ul className={click ? "nav-menue active" : "nav-menu"}>
+            <li className="nav-item">
+              <Link to="/" className="nav-link">
+                Home
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/services" className="nav-link">
+                Services
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/about" className="nav-link">
+                About
+              </Link>
+            </li>
+            <li className="nav-btn">
+              {button ? (
+                <Link to ='/signup'className="btn-link">
+                  <Button buttonStyle="btn--outline">SIGN UP</Button>
+                </Link>
+              ) : (
+                <Link to ='/signup'className="btn-link">
+                  <Button buttonStyle="btn--outline" buttonSize="btn--mobile">
+                    SIGN UP
+                  </Button>
+                </Link>
+              )}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </>
+  );
 }
 
-export default Navbar
+export default Navbar;
 
 // react hooks below putting useState as false makes the click
 
