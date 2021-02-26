@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { FaBars, FaTimes, GiCrystalBars } from "react-icons/fa";
-import { MdFingerprint } from "react-icons/md";
+import CloseIcon from '@material-ui/icons/Close';
 import { Button } from "react-native-elements";
-
+import HorizontalSplitIcon from '@material-ui/icons/HorizontalSplit';
+import FingerprintIcon from '@material-ui/icons/Fingerprint';
 function Navbar() {
   const [click, setClick] = useState(false);
 
@@ -14,10 +14,10 @@ function Navbar() {
       <div className="navbar">
         <div className="navbar-container container ">
           <Link to="/" className="navbar-logo">
-            <MdFingerprint className="navbar-icon" /> IH{" "}
+            <FingerprintIcon  className="navbar-icon" /> IH{" "}
           </Link>
           <div className="menu-icon" onClick={handleClick}>
-            {click ? <FaTimes /> : <FaBars />}
+            {click ? <CloseIcon /> : <HorizontalSplitIcon />}
           </div>
           <ul className={click ? "nav-menue active" : "nav-menu"}>
             <li className="nav-item">
